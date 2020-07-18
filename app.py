@@ -11,6 +11,7 @@ from sklearn.datasets.samples_generator import make_blobs
 from sklearn.svm import SVC
 from io import BytesIO
 import base64
+import pickle as pkl
 
 '''data = pd.read_csv('Iris.csv')
 plt.scatter(data.SepalLengthCm,data.SepalWidthCm,cmap='winter',s=100)
@@ -32,12 +33,16 @@ def generate_data():
     return gendat_img
     
 # Model
-'''svm = SVC(kernel='linear',C=1)
-svm.fit(X,Y)'''
-def plot_svm_boundary(ax=None,plot_support=True,C_inp=1):
+def model_ser(C_in=1):
     global X,Y
-    model = SVC(kernel='linear',C=C_inp)
-    model.fit(X,Y)
+    m = SVC(kernel='linear',C=C_in)
+    m.fit(X,Y)
+    pkl.dump(m,open('model.pkl','wb'))
+
+    return pkl.load(open('model.pkl','rb'))
+
+def plot_svm_boundary(ax=None,plot_support=True,C_inp=1):
+    model = model_ser(C_in=C_inp)
     if ax is None:
         ax = plt.gca()
     # Set limits for x and y data. Here, it will return [X.min(),X.max()] and [Y.min(),Y.max()]
