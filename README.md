@@ -41,6 +41,6 @@ ________________________________________________________________________________
 * Still in development phase
 * Contributions are welcome  
 
-[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/BALaka-18/YouTube-Video-Dowloader-GUI/issues)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/BALaka-18/SVM-Visualizer-Web-App/issues)
 
 View the web app at : https://svm-visualizer3.herokuapp.com/
