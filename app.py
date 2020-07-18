@@ -58,11 +58,11 @@ def plot_svm_boundary(ax=None,plot_support=True,C_inp=1):
     ax.set_xlim(xlim)
     ax.set_ylim(ylim)
 
-def final_plot(C):
+def final_plot(C_i):
     global X,Y
     plt.figure()
     plt.scatter(X[:,0],X[:,1],c=Y,cmap='winter',s=100,edgecolors='black')
-    plot_svm_boundary(C_inp=C)
+    plot_svm_boundary(C_inp=C_i)
     plt.xlabel("Feature1")
     plt.ylabel("Feature2")
     plt.title("VISUALIZING THE SVM DECISION BOUNDARY")
