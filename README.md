@@ -1,4 +1,4 @@
-# SVM-Visualizer-Web-App
+# SVM Visualizer Web App
 This web app shows the effect of the hyperparameter, 'C', on the Support Vector Machine(SVM) algorithm.
 
 The user is asked to generate random data. *In the current version, only linearly separable data is taken into consideration(upcoming releases coming soon)*. The user is then given a choice of values to be used as C. Based on the user's choice, the SVM decision boundary and marginal threshold are shown. Change the values of C to see the plot change.
