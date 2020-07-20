@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>SVM Visualized</title>
+    <link rel = "icon" type = "image/png" href = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQFjp3OzBXCJvQpkhqRpFFb_RdzMULZNBJPZQ&usqp=CAU">
+    <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body style="background-color: #6a040f;">
+  <nav class="navbar">        <!--Creating a navbar-->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQFjp3OzBXCJvQpkhqRpFFb_RdzMULZNBJPZQ&usqp=CAU"/ style="height: 4em; padding-right: 0em; margin-top: 1em; margin-left: 1em;">
+    <h1 class="navbar-brand text-light" style="text-align: left; padding-left: 0em; padding-right: 30em; margin-top: 1em;"><strong>HOW DO HYPERPARAMETERS AFFECT THE SVM ALGORITHM ?</strong></h1>
+  </nav>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg- col-xl-9 mx-auto">
+          <div class="card card-signin flex-row my-4">
+            <div class="card-header" style="text-align: center; width: 60rem; background-color: rgba(0,0,0,.08);">
+              <img src='data:image/png;base64,{{img}}' width="534" height="552">
+              <br><br><br>
+              <h5 style="text-align: right;"><strong>WHY IS 'kernel' AN IMPORTANT HYPERPARAMETER ?</strong></h5>
+              <h6 style="text-align: right;">Say, we have non-linearly separable data that is in the form of two groups of concentric clusters. If we find a way to map the data from 2-dimensional space to 3-dimensional space, we will be able to find a decision surface that clearly divides the different classes. The first thought behind this data transformation process would be to map all the data points to a higher dimension (in this case, the 3rd dimension), and find the boundary hyperplane that results in an almost accurate classification</h6>
+              <h6 style="text-align: right;">However, when there are more and more dimensions, computations within that space become more and more expensive. This is when the <strong><i>"kernel trick"</i></strong> comes in. <i>It allows us to operate in the original feature space without computing the coordinates of the data in a higher dimensional space.</i></h6>
+              <br>
+              <a href="https://towardsdatascience.com/the-kernel-trick-c98cdbcaeb3f" target="blank" style="color: red; text-align: right; font-size: 24px;"><strong>READ : Why is the kernel trick important ?</strong></a>
+              <br><br>
+            </div>
+            <div class="card-body" style="width: 30rem;">
+              <form action="{{url_for('show')}}" method="POST">
+                <div class="form-label-group">
+                  <label for="c"><strong>Choose Value of C :</strong></label>
+                  <br>
+                  <select id="c" name="c">
+                    <option value="1E-4">0.0001</option>
+                    <option value="1E-2">0.01</option>
+                    <option value="1E-1">0.1</option>
+                    <option value="1">1</option>
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="10000">10000</option>
+                  </select>
+                  <br><br>
+                  <span><strong>Choose kernel type :</strong></span>
+                  <br>
+                  <input type="radio" id="linear" name="kernel" value="linear">
+                  <label for="linear">Linearly Kernel</label>
+                  <br>
+                  <input type="radio" id="rbf" name="kernel" value="rbf">
+                  <label for="rbf">RBF Kernel</label>
+                  <br>
+                  <input type="radio" id="poly2" name="kernel" value="poly2">
+                  <label for="poly2">Polynomial(degree=2)</label>
+                  <br>
+                  <input type="radio" id="poly3" name="kernel" value="poly3">
+                  <label for="poly3">Polynomial(degree=3)</label>
+                  <br>
+                  <input type="radio" id="poly4" name="kernel" value="poly4">
+                  <label for="poly4">Polynomial(degree=4)</label>
+                  <br>
+                  <input type="radio" id="poly5" name="kernel" value="poly5">
+                  <label for="poly5">Polynomial(degree=5)</label>
+                  <br>
+                </div>
+                <br>
+                <button class="btn text-uppercase text-light" type="submit" style="background-color: #540b0e;"><strong>SHOW</strong></button>
+
+                <a href="{{url_for('home')}}", class="btn" style="background-color: #fff3b0; color: #000000;"><strong>RESET</strong></a>
+                <br><br>
+                <div>
+                  <h6><strong>WHAT DOES THE HYPERPARAMETER 'C' TELL US ?</strong></h6>
+                  <h6>It is the regularization parameter that tells us, how much we want out SVM model to avoid misclassifications.</h6>
+                  <h6>So, as C increases, marginal threshold gets narower, as all misclassifications are handled perfectly. This gives us a Low Bias model (good on training data). Very high values will overfit the data.</h6>
+                  <h6>As C decreases, marginal threshold gets wider, as ample misclassifications are allowed. Very low values of C give us a High Bias model (poor on training data). But if a certain amount of misclassifications are allowed, the initial High Bias model gives a Low Variance model later (good performance on unseen data).</h6>
+                </div>
+              </form>           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <span class="text-light" style="padding-left: 56rem;">Developed by <a href="https://www.linkedin.com/in/balaka-biswas/" class="text-light" target="blank"><u><strong>Balaka Biswas</strong></u></a></span>
+    <br><br>
+
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</body>
+</html>
