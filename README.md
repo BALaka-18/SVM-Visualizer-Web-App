@@ -1,9 +1,11 @@
 # SVM Visualizer Web App
-This web app shows the effect of the hyperparameter, 'C', on the Support Vector Machine(SVM) algorithm.
+This web app shows the effect of the hyperparameters, C and kernel, on the Support Vector Machine(SVM) algorithm.
 
-The user is asked to generate random data. *In the current version, only linearly separable data is taken into consideration(upcoming releases coming soon)*. The user is then given a choice of values to be used as C. Based on the user's choice, the SVM decision boundary and marginal threshold are shown. Change the values of C to see the plot change.
+The user is asked to generate random data. The user is then given a choice of values to be used as C and kernel. Based on the user's choice, the SVM decision boundary and marginal threshold are shown. Change the values of C and the kernel to see the plot change.
 
-*More values for C will be added and data will be made more random in the upcoming releases.*
+ADDED :
+
+--> Feature to see the 3D view of non-linearly separable data points, as projected by the Gaussian radial bias function.
 
 Frontend :
 
@@ -19,20 +21,17 @@ Backend :
 ________________________________________________________________________________________________________________________________________________________________________________
 # Screenshots of the working app 
 
-1. Home page
-![image](https://user-images.githubusercontent.com/49288068/87856426-ba5b7c80-c93c-11ea-9fc7-7c2c25ee65e1.png)
+![image](https://user-images.githubusercontent.com/49288068/88033330-de95a400-cb5c-11ea-92a5-f13473667f41.png)
 
-2. Data generated pages
-![image](https://user-images.githubusercontent.com/49288068/87856431-c5aea800-c93c-11ea-8f7f-0e4fb9b0d932.png)
+![image](https://user-images.githubusercontent.com/49288068/88033378-ed7c5680-cb5c-11ea-89be-a29e6835b90c.png)
 
-![image](https://user-images.githubusercontent.com/49288068/87856448-e119b300-c93c-11ea-96d9-00155390def8.png)
+![image](https://user-images.githubusercontent.com/49288068/88033649-3f24e100-cb5d-11ea-95c5-c6be6da2ddd2.png)
 
-3. Visualization pages
-![image](https://user-images.githubusercontent.com/49288068/87856458-f393ec80-c93c-11ea-89e1-8abf55a99768.png)
+![image](https://user-images.githubusercontent.com/49288068/88033742-58c62880-cb5d-11ea-8d63-35db1f192d23.png)
 
-![image](https://user-images.githubusercontent.com/49288068/87856464-fd1d5480-c93c-11ea-9c43-c68530d16ccc.png)
+![image](https://user-images.githubusercontent.com/49288068/88033846-7e533200-cb5d-11ea-93e5-6514cfa58111.png)
 
-![image](https://user-images.githubusercontent.com/49288068/87856476-07d7e980-c93d-11ea-8d5e-ec36548b9a40.png)
+![image](https://user-images.githubusercontent.com/49288068/88033802-6aa7cb80-cb5d-11ea-80c0-5815e3ade09c.png)
 ________________________________________________________________________________________________________________________________________________________________________________
 ## License : 
 
@@ -43,4 +42,4 @@ ________________________________________________________________________________
 
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/BALaka-18/SVM-Visualizer-Web-App/issues)
 
-View the web app at : https://svm-visualizer3.herokuapp.com/
+View the web app at : https://svm-visualizer.herokuapp.com/
