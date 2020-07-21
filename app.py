@@ -107,6 +107,30 @@ def plot_gauss3D():
     figdata_img3D = base64.b64encode(figfile3D.getbuffer()).decode('ascii')
     return figdata_img3D
 
+# Checking hyperparameters
+def check_C(c):
+    if c == "1E-4":
+        c = 0.0001
+    elif c == "1E-2":
+        c = 0.01
+    elif c == "1E-1":
+        c = 0.1
+    else:
+        c = int(c)
+    return c
+def check_kernel(k):
+    if k == 'poly2':
+        return 'poly',2
+    elif k == 'poly3':
+        return 'poly',3
+    elif k == 'poly4':
+        return 'poly',4
+    elif k == 'poly5':
+        return 'poly',5
+    else:
+        return k,0
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -132,25 +156,10 @@ def disp3d():
 @app.route('/show',methods=['POST'])
 def show():
     c = request.form.get('c')
-    if c == "1E-4":
-        c = 0.0001
-    elif c == "1E-2":
-        c = 0.01
-    elif c == "1E-1":
-        c = 0.1
-    else:
-        c = int(c)
     k = request.form.get('kernel')
-    if k == 'poly2':
-        img = final_plot(c,'poly',2)
-    elif k == 'poly3':
-        img = final_plot(c,'poly',3)
-    elif k == 'poly4':
-        img = final_plot(c,'poly',4)
-    elif k == 'poly5':
-        img = final_plot(c,'poly',5)
-    else:
-        img = final_plot(c,k)    
+    c_final = check_C(c)
+    k_final,d_final = check_kernel(k)
+    img = final_plot(c_final,k_final,d_final)    
     return render_template('show.html',img = img)
 
 
